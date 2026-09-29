@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABDM Doctor Point-of-Care Terminal</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- HTML5 QR Code Scanner Library -->
+  <script src="https://unpkg.com/html5-qrcode"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen">
+
+  <!-- ABDM Tricolor Bar -->
+  <div class="abdm-tricolor-bar"></div>
+
+  <!-- Terminal Container (Optimized for Tablets and Mobile Browsers) -->
+  <div class="max-w-4xl mx-auto min-h-screen bg-slate-950 border-x border-slate-800 flex flex-col shadow-2xl relative">
+
+    <!-- Top Terminal Navigation Bar -->
+    <header class="p-3.5 bg-slate-900/90 border-b border-slate-800 sticky top-0 z-40 backdrop-blur flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-600 to-indigo-600 flex items-center justify-center text-white shadow-md">
+          <i data-lucide="stethoscope" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-sm font-extrabold tracking-tight text-white uppercase">
+              ABDM Point-of-Care Terminal
+            </h1>
+            <span class="px-2 py-0.5 rounded text-[10px] font-black bg-sky-950 text-sky-400 border border-sky-800 uppercase tracking-wider">
+              Zero-Friction
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">
+            District Hospital & PHC Triage • Sub-Second Secure EMR
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: Telemetry & Live WS Status -->
+      <div class="flex items-center gap-3">
+        <div id="breakGlassStatusBadge" class="hidden px-2.5 py-1 rounded-full text-xs font-black bg-amber-500/20 text-amber-400 border border-amber-500/50 flex items-center gap-1.5 animate-pulse">
+          <i data-lucide="alert-octagon" class="w-3.5 h-3.5"></i>
+          BREAK-GLASS EMERGENCY MODE
+        </div>
+        <div id="doctorWsBadge" class="flex items-center gap-1.5 bg-emerald-950/80 border border-emerald-800 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          ABDM Sync Active
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN TERMINAL CONTENT AREA -->
+    <main class="flex-1 p-4 md:p-6 space-y-5">
+
+      <!-- ================= 1. SCANNER SECTION (WHEN IDLE) ================= -->
+      <section id="scannerSection" class="space-y-4">
+        
+        <!-- Physician Info Card -->
+        <div class="p-3.5 bg-slate-900 border border-slate-800 rounded-2xl flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div class="flex items-center gap-2 text-slate-300">
+            <i data-lucide="user-check" class="w-4 h-4 text-sky-400"></i>
+            <span>Physician:</span>
+            <input id="doctorNameInput" type="text" value="Dr. Ananya Mehta (MD, General Medicine)" class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-white text-xs font-semibold focus:ring-1 focus:ring-sky-500 outline-none w-64">
+          </div>
+          <div class="flex items-center gap-2 text-slate-300">
+            <i data-lucide="building" class="w-4 h-4 text-sky-400"></i>
+            <span>Facility:</span>
+            <input id="doctorFacilityInput" type="text" value="District Hospital Thane - Emergency OPD" class="bg-slate-950 border border-slate-700 rounded-lg px-2.5 py-1 text-white text-xs font-semibold focus:ring-1 focus:ring-sky-500 outline-none w-64">
+          </div>
+        </div>
+
+        <!-- Camera Scanner Card -->
+        <div class="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 text-center space-y-4 shadow-xl">
+          <div class="max-w-md mx-auto">
+            <h2 class="text-base font-bold text-white flex items-center justify-center gap-2">
+              <i data-lucide="scan" class="w-5 h-5 text-sky-400"></i>
+              Instant Camera Scanner
+            </h2>
+            <p class="text-xs text-slate-400 mt-1">
+              Point your tablet or mobile camera at the patient's dynamic 30s ABHA QR code for instant sub-second verification.
+            </p>
+          </div>
+
+          <!-- Video Camera Viewport -->
+          <div class="relative max-w-sm mx-auto aspect-square bg-slate-950 rounded-2xl border-2 border-dashed border-slate-700 overflow-hidden flex items-center justify-center shadow-inner">
+            <div id="qrReaderContainer" class="w-full h-full"></div>
+            
+            <!-- Scan Overlay Crosshair -->
+            <div class="absolute inset-0 pointer-events-none flex items-center justify-center">
+              <div class="w-48 h-48 border-2 border-sky-500/80 rounded-2xl relative animate-pulse">
+                <div class="absolute -top-1 -left-1 w-4 h-4 border-t-2 border-l-2 border-sky-400"></div>
+                <div class="absolute -top-1 -right-1 w-4 h-4 border-t-2 border-r-2 border-sky-400"></div>
+                <div class="absolute -bottom-1 -left-1 w-4 h-4 border-b-2 border-l-2 border-sky-400"></div>
+                <div class="absolute -bottom-1 -right-1 w-4 h-4 border-b-2 border-r-2 border-sky-400"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Fallback or 1-Click Fast Pitch Button -->
+          <div class="pt-2 max-w-md mx-auto space-y-2">
+            <button id="doctorDemoScanBtn" class="w-full py-3 px-4 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white font-extrabold rounded-xl shadow-lg shadow-sky-600/30 flex items-center justify-center gap-2 text-sm transition-all transform active:scale-98">
+              <i data-lucide="zap" class="w-4 h-4"></i>
+              ⚡ INSTANT DEMO SCAN (RAJESH SHARMA - PENICILLIN ALLERGY)
+            </button>
+            <p class="text-[11px] text-slate-400 text-center">
+              Tap above to simulate an instant scan without needing a second physical camera.
+            </p>
+          </div>
+
+        </div>
+
+      </section>
+
+      <!-- ================= 2. ACTIVE CLINICAL VIEW (<1s POINT-OF-CARE) ================= -->
+      <section id="patientClinicalView" class="hidden space-y-5">
+
+        <!-- Active Session Header Bar -->
+        <div class="flex items-center justify-between bg-slate-900 border border-slate-800 p-3 rounded-2xl">
+          <div class="flex items-center gap-2 text-xs">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+            <span class="font-bold text-emerald-400 uppercase tracking-wider">Point-of-Care Session Active</span>
+          </div>
+          <div class="text-xs text-slate-400 flex items-center gap-2 font-mono">
+            <span>Viewing duration:</span>
+            <span id="docSessionTimer" class="font-bold text-white bg-slate-950 px-2 py-0.5 rounded border border-slate-800">00:00</span>
+          </div>
+        </div>
+
+        <!-- HIGH-PRIORITY ALLERGY BANNER (CANNOT BE MISSED) -->
+        <div id="highPriorityAllergyBanner" class="rounded-2xl p-4 bg-red-600 border-2 border-red-400 shadow-2xl animate-urgent-pulse space-y-2">
+          <div class="flex items-center justify-between text-white">
+            <div class="flex items-center gap-2">
+              <i data-lucide="alert-triangle" class="w-6 h-6 text-white shrink-0"></i>
+              <h2 class="font-black text-base uppercase tracking-wider">
+                🚨 CRITICAL DRUG ALLERGY WARNING - HIGH RISK
+              </h2>
+            </div>
+            <span class="bg-black/30 text-white text-[10px] font-mono px-2 py-0.5 rounded">
+              Immediate Clinical Alert
+            </span>
+          </div>
+          <div id="allergyBannerList" class="space-y-2 pt-1">
+            <!-- Allergy pills -->
+          </div>
+        </div>
+
+        <!-- Patient Demographics & Identification -->
+        <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 flex flex-wrap items-center justify-between gap-4">
+          <div class="flex items-center gap-3.5">
+            <img id="docPatientPhoto" src="" alt="Patient" class="w-16 h-16 rounded-full object-cover border-2 border-sky-400 shadow-md bg-slate-800">
+            <div>
+              <div class="flex items-center gap-2">
+                <h3 id="docPatientName" class="font-bold text-lg text-white">--</h3>
+                <span class="px-2 py-0.5 rounded-full text-[10px] font-bold bg-sky-950 text-sky-400 border border-sky-800">
+                  ABDM Verified
+                </span>
+              </div>
+              <div class="text-xs text-slate-400 font-mono mt-0.5">
+                ABHA ID: <span id="docAbhaId" class="text-sky-300 font-semibold">--</span>
+              </div>
+              <div id="docPatientMeta" class="text-xs text-slate-400 mt-0.5">--</div>
+            </div>
+          </div>
+
+          <!-- Blood Group & Emergency Contacts -->
+          <div class="flex items-center gap-3">
+            <div class="bg-rose-950/60 border border-rose-800/80 p-2.5 rounded-xl text-center min-w-[70px]">
+              <div class="text-[9px] uppercase tracking-wider text-rose-400 font-bold">Blood Type</div>
+              <div id="docBloodGroupBadge" class="text-lg font-black text-rose-200">--</div>
+            </div>
+            <div id="docEmergencyContacts" class="space-y-1">
+              <!-- Emergency contact quick buttons -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Sensitive Records Wrapper (Hidden in Break-Glass Emergency Mode) -->
+        <div id="docSensitiveRecordsSection" class="space-y-5">
+
+          <!-- 2-Column Clinical Grid: Medications & Lab Diagnostics -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+
+            <!-- Treatment History & Active Medications -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                <div class="flex items-center gap-2 text-white font-bold text-sm">
+                  <i data-lucide="pill" class="w-4 h-4 text-sky-400"></i>
+                  Active Medications (PHC & Hospitals)
+                </div>
+                <span class="text-[11px] text-slate-400 font-mono">Live Prescriptions</span>
+              </div>
+              <div id="docActiveMedicationsList" class="space-y-2 max-h-64 overflow-y-auto pr-1">
+                <!-- Med list -->
+              </div>
+            </div>
+
+            <!-- Recent Diagnostics & Duplication Avoidance -->
+            <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2.5">
+                <div class="flex items-center gap-2 text-white font-bold text-sm">
+                  <i data-lucide="flask-conical" class="w-4 h-4 text-indigo-400"></i>
+                  Recent Diagnostics & Lab Results
+                </div>
+                <span class="text-[11px] text-amber-400 font-semibold">Duplication Guard</span>
+              </div>
+              <div id="docRecentDiagnosticsList" class="space-y-2 max-h-64 overflow-y-auto pr-1">
+                <!-- Diagnostics list -->
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Chronic Conditions -->
+          <div class="bg-slate-900 border border-slate-800 rounded-2xl p-4 space-y-2.5">
+            <div class="text-xs font-bold uppercase tracking-wider text-slate-400 flex items-center gap-1.5">
+              <i data-lucide="clipboard-list" class="w-4 h-4 text-emerald-400"></i>
+              Recorded Chronic Conditions & Medical History
+            </div>
+            <div id="docConditionsList" class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              <!-- Conditions -->
+            </div>
+          </div>
+
+          <!-- REAL-TIME PRESCRIBING CONFLICT CHECKER -->
+          <div class="bg-slate-900 border border-sky-900/60 rounded-2xl p-4 space-y-3 shadow-lg">
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-sky-500/20 text-sky-400 flex items-center justify-center">
+                  <i data-lucide="shield-alert" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <h4 class="font-extrabold text-sm text-white flex items-center gap-1.5">
+                    Real-Time Prescribing Conflict Checker
+                    <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-sky-950 text-sky-400 border border-sky-800">
+                      Live AI/Drug Rules
+                    </span>
+                  </h4>
+                  <p class="text-xs text-slate-400">Scans clinical notes and prescription inputs as you type to prevent fatal interactions</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Dynamic Conflict Warning Alert Box -->
+            <div id="prescribingConflictAlert" class="hidden space-y-2">
+              <!-- Injected dynamically on keystroke match -->
+            </div>
+
+            <!-- Doctor Clinical Notes Textarea -->
+            <div class="space-y-2">
+              <textarea id="doctorClinicalNotes" rows="3" placeholder="Type doctor's prescription or clinical notes here (e.g., 'Prescribing Amoxicillin 500mg TDS for 5 days')..." class="w-full bg-slate-950 border border-slate-800 rounded-xl p-3 text-sm text-slate-100 placeholder-slate-500 focus:outline-none focus:border-sky-500 font-mono transition-all"></textarea>
+              
+              <!-- Quick Pitch Helper Buttons -->
+              <div class="flex flex-wrap items-center gap-2 text-xs">
+                <span class="text-slate-500 font-medium">Quick Test Conflict:</span>
+                <button id="testTypePenicillin" class="px-2.5 py-1 bg-red-950 hover:bg-red-900 text-red-300 border border-red-800 rounded-lg font-mono text-[11px] transition-all">
+                  + Type "Amoxicillin" (Penicillin Allergy)
+                </button>
+                <button id="testTypeNsaid" class="px-2.5 py-1 bg-amber-950 hover:bg-amber-900 text-amber-300 border border-amber-800 rounded-lg font-mono text-[11px] transition-all">
+                  + Type "Brufen / Ibuprofen" (NSAID Allergy)
+                </button>
+                <button id="testTypeDuplicate" class="px-2.5 py-1 bg-sky-950 hover:bg-sky-900 text-sky-300 border border-sky-800 rounded-lg font-mono text-[11px] transition-all">
+                  + Type "Metformin" (Duplicate Med)
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- ================= 3. THE WINNING FEATURE: SECURITY LOCKOUT MODAL ================= -->
+    <div id="securityLockoutModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 lockout-backdrop transition-all">
+      <div class="max-w-lg w-full bg-slate-950 border-2 border-red-600 rounded-3xl p-6 md:p-8 text-center shadow-2xl space-y-5 animate-conflict-alert relative overflow-hidden">
+        
+        <!-- Emergency strobe glow -->
+        <div class="absolute -top-12 -left-12 w-48 h-48 bg-red-600/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute -bottom-12 -right-12 w-48 h-48 bg-red-600/30 rounded-full blur-3xl pointer-events-none"></div>
+
+        <!-- Lockout Icon -->
+        <div class="w-20 h-20 rounded-full bg-red-600/20 border-2 border-red-500 text-red-500 flex items-center justify-center mx-auto shadow-lg shadow-red-500/20">
+          <i data-lucide="lock" class="w-10 h-10 animate-bounce"></i>
+        </div>
+
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-red-950 text-red-400 border border-red-800 uppercase tracking-widest">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+            Real-Time Consent Revoked
+          </div>
+          <h2 class="text-2xl md:text-3xl font-black text-white tracking-tight uppercase">
+            SESSION TERMINATED
+          </h2>
+          <p class="text-sm font-bold text-red-400" id="lockoutReasonText">
+            Access Revoked by Patient in Real Time.
+          </p>
+        </div>
+
+        <div class="p-4 bg-slate-900/90 rounded-2xl border border-slate-800 text-xs text-slate-300 text-left space-y-2">
+          <div class="flex items-center gap-2 text-red-300 font-bold">
+            <i data-lucide="shield-check" class="w-4 h-4 shrink-0"></i>
+            ABDM Privacy Directive Compliance:
+          </div>
+          <p class="text-slate-400 leading-relaxed">
+            The patient has withdrawn consent via their ABHA Consent Center. All health records, allergy data, and clinical notes have been purged from this terminal in compliance with Section 4(3) of the Digital Personal Data Protection (DPDP) Act and ABDM Health Data Privacy standards.
+          </p>
+          <div class="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px] text-slate-500 font-mono">
+            <span>Terminal: Cleaned & Locked</span>
+            <span>Revoked at: <span id="lockoutTimestamp" class="text-slate-300 font-bold">--</span></span>
+          </div>
+        </div>
+
+        <!-- Acknowledge & Return Button -->
+        <button id="lockoutAcknowledgeBtn" class="w-full py-3.5 px-5 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white font-extrabold rounded-xl shadow-lg shadow-red-600/30 flex items-center justify-center gap-2 text-sm tracking-wide transition-all transform active:scale-98">
+          <i data-lucide="rotate-ccw" class="w-4 h-4"></i>
+          ACKNOWLEDGE & RETURN TO SCANNER
+        </button>
+
+      </div>
+    </div>
+
+    <!-- Scan Loading Overlay -->
+    <div id="scanLoadingOverlay" class="hidden absolute inset-0 z-30 bg-slate-950/80 backdrop-blur-sm flex flex-col items-center justify-center text-center">
+      <div class="w-12 h-12 border-4 border-sky-500 border-t-transparent rounded-full animate-spin"></div>
+      <p class="mt-4 text-sm font-bold text-white tracking-wide">Retrieving ABDM Encrypted Health Record...</p>
+      <p class="text-xs text-slate-400 mt-1">Sub-second point-of-care handshake</p>
+    </div>
+
+    <!-- Footer -->
+    <footer class="p-3 text-center border-t border-slate-800 text-[11px] text-slate-500 bg-slate-950">
+      ABDM Zero-Friction Terminal • Designed for Primary Health Centres & District Hospitals
+    </footer>
+
+  </div>
+
+  <script src="/js/audio.js"></script>
+  <script src="/js/conflict.js"></script>
+  <script src="/js/doctor.js"></script>
+</body>
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ABDM Real-Time Health Platform | Demo Hub</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans selection:bg-sky-500 selection:text-white">
+
+  <!-- ABDM Tricolor Bar -->
+  <div class="abdm-tricolor-bar"></div>
+
+  <!-- Hero & Navigation Header -->
+  <header class="border-b border-slate-800 bg-slate-900/60 backdrop-blur sticky top-0 z-30">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white shadow-md font-black">
+          <i data-lucide="shield-check" class="w-6 h-6"></i>
+        </div>
+        <div>
+          <div class="flex items-center gap-2">
+            <h1 class="text-base font-black tracking-tight text-white">
+              ABDM Real-Time Health Platform
+            </h1>
+            <span class="px-2 py-0.5 rounded text-[10px] font-black bg-emerald-950 text-emerald-400 border border-emerald-800">
+              Zero-Friction
+            </span>
+          </div>
+          <p class="text-xs text-slate-400">Consent & Control Center • Point-of-Care Terminal</p>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-3">
+        <a href="/demo.html" class="px-4 py-2 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white text-xs font-extrabold rounded-xl shadow-lg shadow-sky-600/30 flex items-center gap-2 transition-all transform active:scale-95">
+          <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+          LAUNCH 2-SCREEN DEMO
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-10 space-y-12">
+
+    <!-- Hero Section -->
+    <section class="text-center max-w-3xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-sky-950 text-sky-400 border border-sky-800 shadow-sm">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        Hackathon Pitch Ready • Sub-Second Latency
+      </div>
+      <h2 class="text-3xl md:text-5xl font-black text-white tracking-tight leading-tight">
+        Zero-Friction Point-of-Care EMR with <span class="bg-gradient-to-r from-sky-400 via-indigo-300 to-rose-400 bg-clip-text text-transparent">Real-Time Patient Revocation</span>
+      </h2>
+      <p class="text-slate-400 text-sm md:text-base leading-relaxed">
+        Connecting Primary Health Centres (PHCs), private clinics, and district hospitals. Patients maintain complete ownership of health data with dynamic 30s QR codes, while doctors gain instant, sub-second access without complex software or training.
+      </p>
+    </section>
+
+    <!-- Master Action Cards -->
+    <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+      <!-- Featured: Side-by-Side Dual Screen Demo -->
+      <div class="md:col-span-3 bg-gradient-to-br from-slate-900 via-slate-900 to-sky-950 border-2 border-sky-500/40 rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="space-y-3 max-w-2xl">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-black bg-rose-950 text-rose-400 border border-rose-800 uppercase tracking-widest">
+            ★ Recommended for Judges Pitch
+          </div>
+          <h3 class="text-2xl md:text-3xl font-black text-white">
+            Live 2-Screen Interactive Demo
+          </h3>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Run the complete patient-doctor point-of-care workflow side-by-side in phone and tablet frames. Walk through dynamic 30s QR generation, sub-second scanning, drug conflict detection, and execute the <strong>"Aha!" moment</strong> live when Screen 2 instantly locks out upon patient revocation!
+          </p>
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a href="/demo.html" class="px-6 py-3 bg-gradient-to-r from-sky-500 to-indigo-600 hover:from-sky-400 hover:to-indigo-500 text-white font-extrabold text-sm rounded-xl shadow-lg shadow-sky-600/40 flex items-center gap-2 transition-all transform active:scale-95">
+              <i data-lucide="play" class="w-4 h-4 fill-white"></i>
+              Launch Dual-Screen Pitch Demo
+            </a>
+            <span class="text-xs text-slate-400 font-mono">Includes 1-Click test triggers & live latency meter</span>
+          </div>
+        </div>
+        <div class="flex items-center gap-3 bg-slate-950/80 p-4 rounded-2xl border border-slate-800 shrink-0">
+          <div class="text-center p-2">
+            <i data-lucide="smartphone" class="w-8 h-8 text-sky-400 mx-auto"></i>
+            <span class="text-[11px] font-bold text-slate-300 block mt-1">Screen 1</span>
+            <span class="text-[10px] text-slate-500">Patient</span>
+          </div>
+          <i data-lucide="arrow-right" class="w-5 h-5 text-slate-600"></i>
+          <div class="text-center p-2">
+            <i data-lucide="tablet" class="w-8 h-8 text-indigo-400 mx-auto"></i>
+            <span class="text-[11px] font-bold text-slate-300 block mt-1">Screen 2</span>
+            <span class="text-[10px] text-slate-500">Doctor</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 1: Patient App -->
+      <div class="bg-slate-900 border border-slate-800 hover:border-sky-500/50 rounded-3xl p-6 flex flex-col justify-between space-y-4 shadow-xl transition-all">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-sky-500/10 border border-sky-500/30 text-sky-400 flex items-center justify-center font-bold">
+            <i data-lucide="smartphone" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-sky-400 font-mono">Module 1</span>
+            <h4 class="text-xl font-bold text-white mt-0.5">Patient App (Consent Center)</h4>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Displays verified ABHA ID, generates dynamic 30-second QR codes, allows emergency "Break-Glass" triage mode, and features the prominent <strong>"REVOKE ACCESS NOW"</strong> live cutoff button.
+          </p>
+        </div>
+        <div class="pt-2">
+          <a href="/patient.html" class="w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all">
+            <span>Open Standalone Patient App</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-400"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 2: Doctor Point-of-Care Terminal -->
+      <div class="bg-slate-900 border border-slate-800 hover:border-indigo-500/50 rounded-3xl p-6 flex flex-col justify-between space-y-4 shadow-xl transition-all">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-400 flex items-center justify-center font-bold">
+            <i data-lucide="tablet" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-indigo-400 font-mono">Module 2</span>
+            <h4 class="text-xl font-bold text-white mt-0.5">Doctor Terminal (Point-of-Care)</h4>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Zero-friction mobile/tablet web scanner. Provides sub-second access to active medications, duplication warnings for recent lab diagnostics, and high-priority allergy alerts.
+          </p>
+        </div>
+        <div class="pt-2">
+          <a href="/doctor.html" class="w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all">
+            <span>Open Standalone Doctor Terminal</span>
+            <i data-lucide="external-link" class="w-3.5 h-3.5 text-slate-400"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Card 3: Real-Time Prescribing Conflict Checker -->
+      <div class="bg-slate-900 border border-slate-800 hover:border-amber-500/50 rounded-3xl p-6 flex flex-col justify-between space-y-4 shadow-xl transition-all">
+        <div class="space-y-3">
+          <div class="w-12 h-12 rounded-2xl bg-amber-500/10 border border-amber-500/30 text-amber-400 flex items-center justify-center font-bold">
+            <i data-lucide="shield-alert" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <span class="text-[11px] font-bold uppercase tracking-wider text-amber-400 font-mono">Module 3</span>
+            <h4 class="text-xl font-bold text-white mt-0.5">Real-Time Prescribing Conflict Engine</h4>
+          </div>
+          <p class="text-slate-400 text-xs leading-relaxed">
+            Scans clinical notes in real time as the physician types. Flags fatal drug-allergy interactions (e.g. typing Amoxicillin for a Penicillin-allergic patient) and duplicate therapy.
+          </p>
+        </div>
+        <div class="pt-2">
+          <a href="/demo.html" class="w-full py-2.5 px-4 bg-slate-800 hover:bg-slate-700 text-white font-bold rounded-xl text-xs flex items-center justify-center gap-1.5 transition-all">
+            <span>Test Conflict Checker in Demo</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5 text-slate-400"></i>
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Open on Real Mobile Devices Over Wi-Fi -->
+    <section class="bg-slate-900/60 border border-slate-800 rounded-3xl p-6 md:p-8 space-y-6">
+      <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-4 border-b border-slate-800 pb-4">
+        <div>
+          <h3 class="text-xl font-bold text-white flex items-center gap-2">
+            <i data-lucide="wifi" class="w-5 h-5 text-sky-400"></i>
+            Live Multi-Device Demo: Scan with Real Phones
+          </h3>
+          <p class="text-xs text-slate-400 mt-1">
+            Connect devices to the same local Wi-Fi network to test on physical phones & tablets!
+          </p>
+        </div>
+        <div class="text-xs font-mono bg-slate-950 px-3 py-1.5 rounded-lg border border-slate-800 text-sky-400">
+          Local IP: <span id="networkIpDisplay" class="font-bold">Loading...</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Patient Mobile QR -->
+        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex items-center gap-4">
+          <img id="patientNetworkQr" src="" alt="Patient QR" class="w-28 h-28 bg-white p-1 rounded-xl shrink-0">
+          <div class="space-y-1.5">
+            <div class="text-xs font-black uppercase text-sky-400">Scan for Screen 1: Patient Mobile</div>
+            <p class="text-[11px] text-slate-400">Open Consent & Control Center on your phone to generate dynamic QR codes and tap Revoke.</p>
+            <a id="patientNetworkLink" href="/patient.html" target="_blank" class="text-xs text-sky-300 font-mono underline block truncate max-w-xs">/patient.html</a>
+          </div>
+        </div>
+
+        <!-- Doctor Tablet QR -->
+        <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex items-center gap-4">
+          <img id="doctorNetworkQr" src="" alt="Doctor QR" class="w-28 h-28 bg-white p-1 rounded-xl shrink-0">
+          <div class="space-y-1.5">
+            <div class="text-xs font-black uppercase text-indigo-400">Scan for Screen 2: Doctor Tablet</div>
+            <p class="text-[11px] text-slate-400">Open Point-of-Care Terminal on another phone/tablet to scan patient QR codes with the camera.</p>
+            <a id="doctorNetworkLink" href="/doctor.html" target="_blank" class="text-xs text-indigo-300 font-mono underline block truncate max-w-xs">/doctor.html</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Architecture & Privacy Directives -->
+    <section class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs">
+      <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl space-y-1.5">
+        <div class="font-bold text-white flex items-center gap-1.5">
+          <i data-lucide="refresh-cw" class="w-4 h-4 text-sky-400"></i>
+          30s Dynamic Expiry
+        </div>
+        <p class="text-slate-400 leading-relaxed">
+          Zero replay attack vulnerability. Tokens self-destruct after 30 seconds or upon first doctor scan.
+        </p>
+      </div>
+
+      <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl space-y-1.5">
+        <div class="font-bold text-white flex items-center gap-1.5">
+          <i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i>
+          Sub-50ms Lockout
+        </div>
+        <p class="text-slate-400 leading-relaxed">
+          Full bi-directional WebSocket synchronization terminates doctor viewing instantaneously when patient revokes.
+        </p>
+      </div>
+
+      <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl space-y-1.5">
+        <div class="font-bold text-white flex items-center gap-1.5">
+          <i data-lucide="alert-octagon" class="w-4 h-4 text-amber-400"></i>
+          Break-Glass Triage
+        </div>
+        <p class="text-slate-400 leading-relaxed">
+          Exposes only life-saving triage parameters (Blood Group, Allergies, ER Contacts) while keeping sensitive history locked.
+        </p>
+      </div>
+
+      <div class="p-4 bg-slate-900 border border-slate-800 rounded-2xl space-y-1.5">
+        <div class="font-bold text-white flex items-center gap-1.5">
+          <i data-lucide="file-check" class="w-4 h-4 text-indigo-400"></i>
+          DPDP & ABDM Aligned
+        </div>
+        <p class="text-slate-400 leading-relaxed">
+          Full compliance with Ayushman Bharat Digital Mission and Section 4(3) of India's DPDP Act on consent revocation.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="border-t border-slate-800 py-6 text-center text-xs text-slate-500 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 flex flex-wrap items-center justify-between gap-4">
+      <div>
+        ABDM Real-Time Point-of-Care Platform • Hackathon Prototype
+      </div>
+      <div class="font-mono text-[11px] text-slate-600">
+        Engineered for zero-latency patient data sovereignty
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', async () => {
+      if (window.lucide) window.lucide.createIcons();
+
+      try {
+        const res = await fetch('/api/network-info');
+        const data = await res.json();
+        if (data.success) {
+          document.getElementById('networkIpDisplay').textContent = `${data.localIp}:${data.port}`;
+          if (data.qrs) {
+            document.getElementById('patientNetworkQr').src = data.qrs.patientQr;
+            document.getElementById('doctorNetworkQr').src = data.qrs.doctorQr;
+          }
+          const pLink = document.getElementById('patientNetworkLink');
+          const dLink = document.getElementById('doctorNetworkLink');
+          pLink.href = data.urls.patientUrl;
+          pLink.textContent = data.urls.patientUrl;
+          dLink.href = data.urls.doctorUrl;
+          dLink.textContent = data.urls.doctorUrl;
+        }
+      } catch (e) {
+        console.error('Failed to load network info:', e);
+      }
+    });
+  </script>
+</body>
+</html>

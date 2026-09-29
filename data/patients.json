@@ -1,0 +1,274 @@
+[
+  {
+    "id": "ABHA-9148-2139-2011",
+    "abhaId": "91-4821-3920-1129",
+    "abhaAddress": "rajesh.sharma@abdm",
+    "name": "Rajesh Sharma",
+    "age": 52,
+    "gender": "Male",
+    "bloodGroup": "O+",
+    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80",
+    "phone": "+91 98201 54321",
+    "address": "Kalyan East, Thane District, Maharashtra",
+    "registeredFacility": "Primary Health Centre (PHC) Kalyan",
+    "emergencyContacts": [
+      {
+        "name": "Sunita Sharma",
+        "relation": "Spouse",
+        "phone": "+91 98201 54322"
+      },
+      {
+        "name": "Kalyan PHC Emergency Desk",
+        "relation": "Primary Health Centre",
+        "phone": "+91 251 220011"
+      }
+    ],
+    "criticalAllergies": [
+      {
+        "allergen": "Penicillin (and all Beta-Lactams)",
+        "severity": "CRITICAL / FATAL",
+        "reaction": "Anaphylactic shock, airway closure, severe hypotension",
+        "category": "Antibiotic",
+        "conflictsWith": ["Penicillin", "Amoxicillin", "Ampicillin", "Augmentin", "Piperacillin", "Cephalexin", "Cefuroxime"]
+      },
+      {
+        "allergen": "NSAIDs / Aspirin",
+        "severity": "HIGH",
+        "reaction": "Angioedema, bronchospasm, severe gastrointestinal ulcer bleeding",
+        "category": "Analgesic / Anti-inflammatory",
+        "conflictsWith": ["Aspirin", "Ibuprofen", "Brufen", "Diclofenac", "Naproxen", "Ketorolac", "Aceclofenac"]
+      }
+    ],
+    "activeConditions": [
+      {
+        "condition": "Type 2 Diabetes Mellitus",
+        "diagnosedDate": "2021-04-10",
+        "status": "Managed",
+        "phcNotes": "HbA1c fluctuates around 7.2 - 7.5%"
+      },
+      {
+        "condition": "Primary Essential Hypertension",
+        "diagnosedDate": "2019-11-22",
+        "status": "Active",
+        "phcNotes": "BP 138/88 mmHg on morning medication"
+      }
+    ],
+    "activeMedications": [
+      {
+        "drug": "Metformin 500mg",
+        "dosage": "1 tablet twice daily (After meals)",
+        "prescribedBy": "Dr. Ramesh Patil (PHC Kalyan)",
+        "startDate": "2026-08-10",
+        "remainingDays": 14,
+        "purpose": "Glycemic Control"
+      },
+      {
+        "drug": "Telmisartan 40mg",
+        "dosage": "1 tablet once daily (Morning)",
+        "prescribedBy": "Dr. Ramesh Patil (PHC Kalyan)",
+        "startDate": "2026-08-01",
+        "remainingDays": 21,
+        "purpose": "Hypertension"
+      },
+      {
+        "drug": "Atorvastatin 10mg",
+        "dosage": "1 tablet at bedtime",
+        "prescribedBy": "Dr. Ramesh Patil (PHC Kalyan)",
+        "startDate": "2026-08-01",
+        "remainingDays": 21,
+        "purpose": "Dyslipidemia"
+      }
+    ],
+    "recentDiagnostics": [
+      {
+        "testName": "Serum Creatinine & eGFR",
+        "date": "2026-09-23 (2 days ago)",
+        "facility": "PHC Kalyan Diagnostic Lab",
+        "result": "1.08 mg/dL (Normal: 0.7 - 1.3 mg/dL), eGFR: 78 mL/min",
+        "isRecent": true,
+        "duplicationWarning": "⚠️ Recent test (< 48 hrs). Avoid re-ordering renal function test unless acute kidney injury is suspected."
+      },
+      {
+        "testName": "HbA1c (Glycated Hemoglobin)",
+        "date": "2026-09-18 (7 days ago)",
+        "facility": "Thane District Civil Hospital",
+        "result": "7.3% (Target < 7.0%)",
+        "isRecent": true,
+        "duplicationWarning": "⚠️ Recent test (< 3 months). HbA1c reflects 90-day average; re-ordering now yields zero diagnostic value."
+      },
+      {
+        "testName": "12-Lead Electrocardiogram (ECG)",
+        "date": "2026-09-10 (15 days ago)",
+        "facility": "District Hospital Cardiology Unit",
+        "result": "Normal Sinus Rhythm, HR 74 bpm, No ST-T segment elevation",
+        "isRecent": false,
+        "duplicationWarning": null
+      }
+    ],
+    "pastSurgeries": [
+      {
+        "procedure": "Right Inguinal Hernia Repair",
+        "year": "2018",
+        "hospital": "Thane Civil Hospital"
+      }
+    ],
+    "immunizations": [
+      "COVID-19 Covishield (3 Doses complete)",
+      "Influenza Annual (Nov 2025)",
+      "Tetanus Toxoid Booster (June 2024)"
+    ]
+  },
+  {
+    "id": "ABHA-9188-4210-4431",
+    "abhaId": "91-8842-1092-4431",
+    "abhaAddress": "priya.patel@abdm",
+    "name": "Priya Patel",
+    "age": 29,
+    "gender": "Female",
+    "bloodGroup": "B+",
+    "photo": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&auto=format&fit=crop&q=80",
+    "phone": "+91 98190 67890",
+    "address": "Naupada, Thane West, Maharashtra",
+    "registeredFacility": "Urban Primary Health Centre Naupada",
+    "emergencyContacts": [
+      {
+        "name": "Vikram Patel",
+        "relation": "Father",
+        "phone": "+91 98190 67891"
+      }
+    ],
+    "criticalAllergies": [
+      {
+        "allergen": "Sulfa Drugs / Sulfonamides",
+        "severity": "CRITICAL",
+        "reaction": "Stevens-Johnson Syndrome (SJS), severe dermatological epidermal necrolysis",
+        "category": "Antibiotic",
+        "conflictsWith": ["Bactrim", "Cotrimoxazole", "Sulfamethoxazole", "Septra", "Sulfadiazine"]
+      },
+      {
+        "allergen": "Peanuts / Tree Nuts",
+        "severity": "HIGH",
+        "reaction": "Laryngeal edema, urticaria",
+        "category": "Food",
+        "conflictsWith": ["Arachis oil formulations"]
+      }
+    ],
+    "activeConditions": [
+      {
+        "condition": "Mild Persistent Bronchial Asthma",
+        "diagnosedDate": "2022-02-14",
+        "status": "Controlled",
+        "phcNotes": "Triggered by cold weather and dust"
+      }
+    ],
+    "activeMedications": [
+      {
+        "drug": "Budesonide + Formoterol Inhaler (200/6 mcg)",
+        "dosage": "1 puff twice daily",
+        "prescribedBy": "Dr. Sneha Kulkarni",
+        "startDate": "2026-09-01",
+        "remainingDays": 25,
+        "purpose": "Asthma Maintenance"
+      },
+      {
+        "drug": "Levocetirizine 5mg",
+        "dosage": "1 tablet SOS at night for rhinitis",
+        "prescribedBy": "Dr. Sneha Kulkarni",
+        "startDate": "2026-09-01",
+        "remainingDays": 10,
+        "purpose": "Allergic Rhinitis"
+      }
+    ],
+    "recentDiagnostics": [
+      {
+        "testName": "Complete Blood Count (CBC) with ESR",
+        "date": "2026-09-24 (Yesterday)",
+        "facility": "UPHC Naupada Central Lab",
+        "result": "Hb: 12.8 g/dL, TLC: 7,400 /mcL, Platelets: 2.4 Lakhs, Absolute Eosinophils: 380",
+        "isRecent": true,
+        "duplicationWarning": "⚠️ Recent test (done yesterday). Avoid repeating CBC blood draw."
+      }
+    ],
+    "pastSurgeries": [],
+    "immunizations": [
+      "COVID-19 Covaxin (3 Doses)",
+      "HPV Vaccine (Complete series)"
+    ]
+  },
+  {
+    "id": "ABHA-9131-4590-7744",
+    "abhaId": "91-3145-9012-7744",
+    "abhaAddress": "sunita.devi@abdm",
+    "name": "Sunita Devi",
+    "age": 68,
+    "gender": "Female",
+    "bloodGroup": "AB-",
+    "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80",
+    "phone": "+91 97654 32109",
+    "address": "Village Ambivali, Kalyan Taluka, Maharashtra",
+    "registeredFacility": "Sub-Centre Ambivali (PHC Titwala)",
+    "emergencyContacts": [
+      {
+        "name": "Ramesh Kumar (Son)",
+        "relation": "Son",
+        "phone": "+91 97654 32110"
+      }
+    ],
+    "criticalAllergies": [
+      {
+        "allergen": "Fluoroquinolones (Ciprofloxacin / Levofloxacin)",
+        "severity": "CRITICAL",
+        "reaction": "QTc prolongation, severe arrhythmia, Achilles tendonitis",
+        "category": "Antibiotic",
+        "conflictsWith": ["Ciprofloxacin", "Levofloxacin", "Ofloxacin", "Moxifloxacin", "Norfloxacin"]
+      }
+    ],
+    "activeConditions": [
+      {
+        "condition": "Hypertension & Bilateral Knee Osteoarthritis",
+        "diagnosedDate": "2018-06-15",
+        "status": "Chronic",
+        "phcNotes": "Joint stiffness, mobility restricted"
+      }
+    ],
+    "activeMedications": [
+      {
+        "drug": "Amlodipine 5mg",
+        "dosage": "1 tablet daily",
+        "prescribedBy": "Dr. Joshi (PHC Titwala)",
+        "startDate": "2026-08-15",
+        "remainingDays": 18,
+        "purpose": "Blood Pressure"
+      },
+      {
+        "drug": "Paracetamol 650mg SOS",
+        "dosage": "As needed for joint pain (Max 2g/day)",
+        "prescribedBy": "Dr. Joshi (PHC Titwala)",
+        "startDate": "2026-08-15",
+        "remainingDays": 20,
+        "purpose": "Osteoarthritis pain"
+      }
+    ],
+    "recentDiagnostics": [
+      {
+        "testName": "Lipid Profile & Fasting Blood Sugar",
+        "date": "2026-09-22 (3 days ago)",
+        "facility": "Titwala PHC Pathology",
+        "result": "Total Cholesterol: 185 mg/dL, FBS: 98 mg/dL",
+        "isRecent": true,
+        "duplicationWarning": "⚠️ Recent fasting lipid test (< 72 hrs). Do not duplicate."
+      }
+    ],
+    "pastSurgeries": [
+      {
+        "procedure": "Cataract Surgery (Left Eye)",
+        "year": "2023",
+        "hospital": "District Ophthalmic Unit"
+      }
+    ],
+    "immunizations": [
+      "COVID-19 Covishield",
+      "Pneumococcal Vaccine PCV13 (2024)"
+    ]
+  }
+]
