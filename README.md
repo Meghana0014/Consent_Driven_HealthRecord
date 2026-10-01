@@ -5,7 +5,7 @@ A lightweight, mobile-first web platform connecting patients and healthcare prov
 
 ---
 
-## 🌟 The "Aha!" Moment for Hackathon Judges
+## 🌟Impressive Features of this prototype
 In modern healthcare, patient consent is often treated as static and unverifiable. In this platform:
 1. **Screen 1 (Patient Mobile View)** displays an auto-refreshing 30-second ABHA QR code.
 2. **Screen 2 (Doctor Tablet View)** scans the code and instantly displays critical allergy warnings, active medications, and duplication lab alerts in **< 1 second**.
