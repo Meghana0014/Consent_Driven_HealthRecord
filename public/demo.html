@@ -15,105 +15,34 @@
   <!-- ABDM Tricolor Bar -->
   <div class="abdm-tricolor-bar"></div>
 
-  <!-- Master Pitch Header & Control Center -->
-  <header class="bg-slate-900 border-b border-slate-800 px-4 py-3 sticky top-0 z-50 shadow-xl">
-    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
-      
-      <!-- Brand & Project Title -->
+  <!-- Header -->
+  <header class="bg-slate-900/80 backdrop-blur-md border-b border-slate-800/60 px-6 py-4 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+
+      <!-- Brand -->
       <div class="flex items-center gap-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center text-white shadow-md font-black">
-          <i data-lucide="activity" class="w-6 h-6"></i>
+        <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-sky-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-sky-500/20">
+          <i data-lucide="activity" class="w-5 h-5 text-white"></i>
         </div>
         <div>
-          <div class="flex items-center gap-2">
-            <h1 class="text-base font-black tracking-tight text-white flex items-center gap-1.5">
-              ABDM Real-Time Health Platform
-              <span class="px-2 py-0.5 rounded text-[10px] font-black bg-rose-950 text-rose-400 border border-rose-800">
-                LIVE 2-SCREEN DEMO
-              </span>
-            </h1>
-          </div>
-          <p class="text-xs text-slate-400">
-            Patient Consent Engine • Point-of-Care Terminal • Instant Revocation
-          </p>
+          <h1 class="text-sm font-black tracking-tight text-white">
+            ABDM Real-Time Health Platform
+          </h1>
+          <p class="text-[11px] text-slate-400">Patient Consent Engine • Point-of-Care Terminal • Instant Revocation</p>
         </div>
       </div>
 
-      <!-- Quick Stage Pitch Action Buttons -->
-      <div class="flex flex-wrap items-center gap-2">
-        <button id="demoSimulateScanBtn" class="px-3.5 py-1.5 bg-gradient-to-r from-sky-600 to-indigo-600 hover:from-sky-500 hover:to-indigo-500 text-white text-xs font-bold rounded-xl shadow-md shadow-sky-600/20 flex items-center gap-1.5 transition-all transform active:scale-95">
-          <i data-lucide="zap" class="w-4 h-4"></i>
-          1. Simulate Doctor Scan (<1s)
-        </button>
-
-        <button id="demoConflictTestBtn" class="px-3.5 py-1.5 bg-slate-800 hover:bg-slate-700 text-amber-300 border border-amber-500/30 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all">
-          <i data-lucide="pill" class="w-4 h-4 text-amber-400"></i>
-          2. Type "Amoxicillin" (Conflict)
-        </button>
-
-        <button id="demoMasterBreakGlassBtn" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-amber-400 border border-amber-600/40 text-xs font-bold rounded-xl flex items-center gap-1.5 transition-all">
-          <i data-lucide="alert-octagon" class="w-4 h-4"></i>
-          Emergency Break-Glass
-        </button>
-
-        <button id="demoMasterRevokeBtn" class="px-4 py-1.5 bg-gradient-to-r from-red-600 to-rose-600 hover:from-red-500 hover:to-rose-500 text-white text-xs font-extrabold rounded-xl shadow-md shadow-red-600/30 flex items-center gap-1.5 transition-all transform active:scale-95 animate-pulse">
-          <i data-lucide="lock" class="w-4 h-4"></i>
-          3. Tap "REVOKE ACCESS NOW" (Aha! Moment)
-        </button>
-      </div>
-
-      <!-- Telemetry Info -->
-      <div class="flex items-center gap-3">
-        <div id="demoWsTelemetry" class="flex items-center gap-2 bg-emerald-950/80 border border-emerald-800 text-emerald-400 px-3 py-1 rounded-full text-xs font-semibold">
-          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-          <span>ABDM Realtime: Active</span>
-        </div>
-        <div class="hidden sm:flex items-center gap-1.5 bg-slate-900 border border-slate-800 px-2.5 py-1 rounded-full text-xs font-mono text-slate-400">
-          <span>Latency:</span>
-          <span id="telemetryLatency" class="text-sky-400 font-bold">12 ms</span>
+      <!-- Right: badges -->
+      <div class="flex items-center gap-2.5">
+        <span class="px-2.5 py-1 rounded-full text-[10px] font-black bg-rose-950 text-rose-400 border border-rose-800/60 uppercase tracking-wider">Live 2-Screen Demo</span>
+        <div id="demoWsTelemetry" class="flex items-center gap-1.5 bg-emerald-950/60 border border-emerald-800/60 text-emerald-400 px-2.5 py-1 rounded-full text-[11px] font-semibold">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Live</span>
+          <span class="text-slate-500">·</span>
+          <span id="telemetryLatency" class="text-sky-400 font-bold">12ms</span>
         </div>
       </div>
 
-    </div>
-
-    <!-- Guided Pitch Walkthrough Step Bar -->
-    <div class="max-w-7xl mx-auto mt-3 pt-2.5 border-t border-slate-800/80 flex flex-wrap items-center justify-between gap-2">
-      <div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-xs">
-        <span class="text-slate-500 font-bold uppercase text-[11px] mr-1">Pitch Flow:</span>
-        <button class="pitch-step-pill px-3 py-1 rounded-lg border border-sky-400 bg-sky-600 text-white text-xs font-extrabold shadow-sm transition-all" data-step="1">
-          1. 30s Dynamic QR
-        </button>
-        <button class="pitch-step-pill px-3 py-1 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 text-xs font-semibold hover:border-slate-700 transition-all" data-step="2">
-          2. Doctor Camera Scan
-        </button>
-        <button class="pitch-step-pill px-3 py-1 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 text-xs font-semibold hover:border-slate-700 transition-all" data-step="3">
-          3. Allergy Alert & EMR (<1s)
-        </button>
-        <button class="pitch-step-pill px-3 py-1 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 text-xs font-semibold hover:border-slate-700 transition-all" data-step="4">
-          4. Conflict Detection
-        </button>
-        <button class="pitch-step-pill px-3 py-1 rounded-lg border border-slate-800 bg-slate-900 text-slate-400 text-xs font-semibold hover:border-slate-700 transition-all" data-step="5">
-          5. Instant Lockout "Aha!"
-        </button>
-      </div>
-
-      <div class="flex items-center gap-2">
-        <a href="/patient.html" target="_blank" class="text-xs text-sky-400 hover:text-sky-300 flex items-center gap-1">
-          <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Standalone Patient
-        </a>
-        <span class="text-slate-700">•</span>
-        <a href="/doctor.html" target="_blank" class="text-xs text-indigo-400 hover:text-indigo-300 flex items-center gap-1">
-          <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Standalone Doctor
-        </a>
-      </div>
-    </div>
-
-    <!-- Active Step Explainer Banner -->
-    <div class="max-w-7xl mx-auto mt-2">
-      <div id="stepGuideBanner" class="p-2.5 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 flex items-center gap-2">
-        <i data-lucide="info" class="w-4 h-4 text-sky-400 shrink-0"></i>
-        <span><strong>Step 1: Patient displays dynamic QR:</strong> Notice how the QR code rotates every 30 seconds with an animated countdown ring, preventing replay attacks.</span>
-      </div>
     </div>
   </header>
 
