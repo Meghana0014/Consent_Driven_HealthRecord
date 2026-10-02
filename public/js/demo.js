@@ -213,13 +213,13 @@ function activatePitchStep(stepNumber) {
         guideText.innerHTML = `<strong>Step 2: Doctor Point-of-Care Scan:</strong> Doctor opens camera or taps <em>"Simulate Scan"</em>. Zero logins or laptops required.`;
         break;
       case 3:
-        guideText.innerHTML = `<strong>Step 3: Sub-Second Clinical Access:</strong> Within <1s, Doctor terminal displays the bright red Critical Allergy banner and duplication warnings for lab tests.`;
+        guideText.innerHTML = `<strong>Step 3: Sub-Second Clinical Access:</strong> Within &lt;1s, Doctor terminal displays the critical allergy banner and duplication warnings for lab tests.`;
         break;
       case 4:
         guideText.innerHTML = `<strong>Step 4: Prescribing Conflict Checker:</strong> Doctor types prescription notes. Keystroke analyzer instantly flags lethal interactions (e.g., Amoxicillin vs Penicillin allergy).`;
         break;
       case 5:
-        guideText.innerHTML = `<strong>Step 5: The "Aha!" Moment:</strong> Tap <em>"REVOKE ACCESS NOW"</em> on Screen 1. The doctor screen instantly blurs and locks out in real time!`;
+        guideText.innerHTML = `<strong>Step 5: Instant Lockout:</strong> Tap <em>"REVOKE ACCESS NOW"</em> on Screen 1. The doctor screen instantly blurs and locks out in real time.`;
         break;
     }
   }
