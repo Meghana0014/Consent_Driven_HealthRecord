@@ -3,14 +3,56 @@
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 :root {
-  --primary: #0284c7;
-  --primary-dark: #0369a1;
+  --primary: #0f9f91;
+  --primary-dark: #0f766e;
+  --navy: #294b45;
+  --navy-deep: #eaf5ef;
+  --navy-soft: #dceee4;
+  --teal: #0f9f91;
+  --teal-dark: #0f766e;
+  --mist: #eaf5ef;
   --emergency: #dc2626;
   --warning: #f59e0b;
   --success: #10b981;
   --abdm-orange: #ff9933;
   --abdm-green: #138808;
-  --abdm-navy: #000080;
+  --abdm-navy: #12304a;
+}
+
+/* Shared teal and navy surface palette. Content and layout remain unchanged. */
+[class~="bg-slate-950"] { background-color: var(--navy-deep) !important; }
+[class~="bg-slate-900"], [class~="bg-slate-900/90"], [class~="bg-slate-900/80"], [class~="bg-slate-900/60"] {
+  background-color: #faf9f4 !important;
+}
+[class~="bg-slate-950/80"], [class~="bg-slate-950/60"] { background-color: #e5f1e9 !important; }
+[class~="bg-slate-800"] { background-color: var(--navy-soft) !important; }
+[class~="bg-slate-700"] { background-color: #d3e0d7 !important; }
+[class~="bg-slate-100"] { background-color: var(--mist) !important; }
+[class~="bg-slate-50"] { background-color: #f5f8f3 !important; }
+[class~="border-slate-800"], [class~="border-slate-800/60"], [class~="border-slate-700"] {
+  border-color: #c8d8ce !important;
+}
+[class~="border-slate-200"], [class~="border-slate-100"] { border-color: #d4e5da !important; }
+[class~="from-slate-900"] { --tw-gradient-from: #faf9f4 var(--tw-gradient-from-position) !important; }
+[class~="to-slate-800"] { --tw-gradient-to: #e2ece5 var(--tw-gradient-to-position) !important; }
+[class~="via-slate-900"] { --tw-gradient-via: #f0f5ef var(--tw-gradient-via-position) !important; }
+[class~="to-teal-950"] { --tw-gradient-to: #dceee4 var(--tw-gradient-to-position) !important; }
+[class~="bg-teal-950"] { background-color: #dceee4 !important; }
+[class~="text-teal-400"] { color: #0f766e !important; }
+[class~="text-slate-100"] { color: #203b34 !important; }
+[class~="text-slate-200"] { color: #2f4a42 !important; }
+[class~="text-slate-300"] { color: #3e5b51 !important; }
+[class~="text-slate-400"] { color: #61766d !important; }
+[class~="text-slate-500"] { color: #64766f !important; }
+body.bg-slate-950 [class~="text-white"]:not(button):not(button *):not([class~="bg-gradient-to-tr"] *),
+body.bg-slate-900 [class~="text-white"]:not(button):not(button *):not([class~="bg-gradient-to-tr"] *):not(.lockout-backdrop *) {
+  color: #203b34 !important;
+}
+
+/* Keep key identity panels deep green so their white text stays readable. */
+body.bg-slate-100 [class~="bg-gradient-to-br"][class~="from-slate-900"] {
+  --tw-gradient-from: #294b45 var(--tw-gradient-from-position) !important;
+  --tw-gradient-to: #3d6358 var(--tw-gradient-to-position) !important;
 }
 
 body {

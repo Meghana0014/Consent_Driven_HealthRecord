@@ -370,14 +370,14 @@ function renderActiveMedications(medications) {
     <div class="p-3 bg-white border border-slate-200 rounded-xl shadow-xs flex items-center justify-between">
       <div class="space-y-0.5">
         <div class="font-bold text-slate-900 text-sm flex items-center gap-1.5">
-          <i data-lucide="pill" class="w-4 h-4 text-sky-600"></i>
+          <i data-lucide="pill" class="w-4 h-4 text-teal-600"></i>
           ${m.drug}
         </div>
         <div class="text-xs text-slate-600">${m.dosage}</div>
         <div class="text-[11px] text-slate-400">Prescriber: ${m.prescribedBy}</div>
       </div>
       <div class="text-right">
-        <span class="inline-flex items-center px-2 py-1 rounded-lg text-xs font-bold bg-sky-50 text-sky-700 border border-sky-200">
+        <span class="inline-flex items-center px-2 py-1 rounded-lg text-xs font-bold bg-teal-50 text-teal-700 border border-teal-200">
           ${m.remainingDays} days left
         </span>
         <div class="text-[10px] text-slate-400 mt-1">${m.purpose || ''}</div>
@@ -400,7 +400,7 @@ function renderRecentDiagnostics(diagnostics) {
     <div class="p-3 bg-white border ${d.isRecent ? 'border-amber-300 bg-amber-50/20' : 'border-slate-200'} rounded-xl shadow-xs space-y-1.5">
       <div class="flex items-center justify-between">
         <div class="font-bold text-slate-800 text-sm flex items-center gap-1.5">
-          <i data-lucide="activity" class="w-4 h-4 text-indigo-600"></i>
+          <i data-lucide="activity" class="w-4 h-4 text-teal-600"></i>
           ${d.testName}
         </div>
         <span class="text-xs font-mono text-slate-500 bg-slate-100 px-2 py-0.5 rounded">${d.date}</span>

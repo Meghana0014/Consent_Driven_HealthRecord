@@ -175,7 +175,7 @@ function updateCountdownUI(secs) {
     if (secs <= 5) {
       progressCircle.style.stroke = '#ef4444'; // red when almost expired
     } else {
-      progressCircle.style.stroke = '#0284c7'; // blue
+      progressCircle.style.stroke = '#0f9f91'; // healthcare teal
     }
   }
 }
@@ -407,10 +407,10 @@ function renderAuditLedger(ledger) {
     }
 
     return `
-      <div class="p-3 border border-slate-200 rounded-xl bg-white shadow-sm flex flex-col gap-1.5 transition-all hover:border-sky-300">
+      <div class="p-3 border border-slate-200 rounded-xl bg-white shadow-sm flex flex-col gap-1.5 transition-all hover:border-teal-300">
         <div class="flex items-center justify-between">
           <div class="font-semibold text-slate-800 text-sm flex items-center gap-1.5">
-            <i data-lucide="building-2" class="w-4 h-4 text-sky-600"></i>
+            <i data-lucide="building-2" class="w-4 h-4 text-teal-600"></i>
             ${entry.facility}
           </div>
           ${statusBadge}
@@ -474,4 +474,3 @@ window.revokeAccessNow = revokeAccessNow;
 window.toggleBreakGlass = toggleBreakGlass;
 window.generateNewToken = generateNewToken;
 window.selectPatient = selectPatient;
-

@@ -194,7 +194,7 @@ function activatePitchStep(stepNumber) {
     const s = parseInt(pill.getAttribute('data-step'), 10);
     if (s === stepNumber) {
       pill.classList.remove('bg-slate-800', 'text-slate-400', 'border-slate-700');
-      pill.classList.add('bg-sky-600', 'text-white', 'border-sky-400', 'font-extrabold', 'shadow-md');
+      pill.classList.add('bg-teal-600', 'text-white', 'border-teal-400', 'font-extrabold', 'shadow-md');
     } else if (s < stepNumber) {
       pill.classList.remove('bg-slate-800', 'border-slate-700');
       pill.classList.add('bg-emerald-950', 'text-emerald-400', 'border-emerald-800');
